@@ -1,0 +1,20 @@
+<form #form [formGroup]="_form" (submit)="addItem()">
+  <input formControlName="description" placeholder="Descrição da Tarefa">
+  <button type="submit" [disabled]="_form.invalid">{{ _temp?.id ? 'Salvar' : 'Adicionar' }}</button>
+</form>
+
+<button (click)="removeDones()">Remover Marcados</button>
+<button (click)="removeDones()">Remover Tudo</button>
+
+<select [(ngModel)]="_filter">
+  <option value="all">Mostrar Tudo</option>
+  <option value="onlyDone">Mostrar Marcados</option>
+  <option value="noDone">Mostrar Não Marcados</option>
+</select>
+
+<div *ngFor="let todo of dataTable">
+  <input type="checkbox" [(ngModel)]="todo.done">
+  <a>{{ todo.description }}</a>
+  <button (click)="editItem(todo)">Editar</button>
+  <button (click)="removeItem(todo)">Remover</button>
+</div>

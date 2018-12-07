@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-primary mb-4">
+  <a class="navbar-brand" routerLink="/">TESTE</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav"
+    aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item" routerLinkActive="active">
+        <a class="nav-link" routerLink="/pages/tasks">TASKS</a>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class="container">
+  <app-breadcrumb></app-breadcrumb>
+
+  <app-navegador></app-navegador>
+  <router-outlet></router-outlet>
+</div>
+
+<p-growl></p-growl>
+
+<p-confirmDialog header="Confirmação" icon="fa fa-question-circle" #confirmacao>
+  <p-footer>
+    <button type="button" pButton icon="fa-check" label="Sim" (click)="confirmacao.accept()"></button>
+    <button type="button" pButton icon="fa-times" label="Não" (click)="confirmacao.reject()"></button>
+  </p-footer>
+</p-confirmDialog>

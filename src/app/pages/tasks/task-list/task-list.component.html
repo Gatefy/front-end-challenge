@@ -1,0 +1,60 @@
+<div class="row mb-4">
+  <div class="col-md">
+    <button type="button" class="btn btn-light float-left" (click)="deleteAll()" [disabled]="tasksSelectd.length === 0">
+      Remover Tarefas selecionadas
+    </button>
+  </div>
+  <div class="col-md">
+    <button type="button" class="btn btn-light float-left" (click)="marcarTarefasSelecionadasComoFeita()" [disabled]="tasksSelectd.length === 0">
+      Marcar Tarefas selecionadas como feita
+    </button>
+  </div>
+  <div class="col-md">
+    <button type="button" class="btn btn-light float-left" (click)="filtrar()">
+      Filtrar por
+    </button>
+  </div>
+
+
+
+  <div class="col-md-3">
+    <select class="form-control" [(ngModel)]="status">
+      <option [ngValue]="undefined">TODOS</option>
+      <option ngValue="F">FEITO</option>
+      <option ngValue="P">PEDENTE</option>
+    </select>
+  </div>
+</div>
+
+<table class="table table-hover" *ngIf="!showForm">
+  <thead>
+    <tr class="bg-primary text-light">
+      <th>
+        <p-checkbox name="group" binary="true" [(ngModel)]="selectAll" (onChange)="selectAllOrDeselected()"></p-checkbox>
+      </th>
+      <th>Name</th>
+      <th>Realizada</th>
+      <th>Ações</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let row of tasks">
+      <td>
+        <p-checkbox name="group2" [value]="row" [(ngModel)]="tasksSelectd" [inputId]="row.id"></p-checkbox>
+      </td>
+      <td>
+        <strong>{{row.name}}</strong><br>
+        <small>{{row.description}}</small>
+      </td>
+      <td>
+        <a href="javascript:;" [pTooltip]="row.done ? 'Feito' : 'Pendente'" tooltipPosition="top" (click)="changeStatus(row)">
+          {{ row.done ? 'Feito' : 'Pendente' }}
+        </a>
+      </td>
+      <td>
+        <a [routerLink]="[row.id, 'edit']" class="btn btn-outline-info btn-sm mr-2">Editar</a>
+        <button (click)="confirmDelete(row)" class="btn btn-outline-danger btn-sm">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>

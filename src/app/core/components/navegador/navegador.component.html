@@ -1,0 +1,19 @@
+<div class="row mb-4">
+  <div class="col-md">
+    <h1 class="h2 border-left pl-2">
+      {{item?.label}}
+    </h1>
+  </div>
+
+  <div class="col-md" *ngIf="item">
+    <a [routerLink]="item.routerLink" class="btn btn-light float-right" *ngIf="item.routerLink; else content">
+      <i [class]="item.icon"></i> {{label}}
+    </a>
+    <ng-template #content>
+      <a routerLink="/" class="btn btn-light float-right">
+        <i class="pi pi-home"></i> Home
+      </a>
+    </ng-template>
+
+  </div>
+</div>

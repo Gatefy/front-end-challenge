@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 # FrontEndChallenge
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.6.
@@ -51,4 +51,3 @@ Faça um pull request para este repositório com o seu código, que, deve ser es
 
 ### Extras (não necessário):
 Testes unitários e/ou testes E2E.
->>>>>>> 36f23a60abcb78e99b19615d0a89bdd305da56ec

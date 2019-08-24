@@ -1,0 +1,34 @@
+<h1 class="center">Lista de Tarefas</h1>
+<hr>
+<form class="center" (ngSubmit)="onSubmit(form)" #form="ngForm">
+  <label>Tarefa:</label>
+  <input type="text" name="tarefa" [(ngModel)]="tarefa" required>
+  <button type="submit" [disabled]="!form.valid">{{ editando ? 'Atualizar' : 'Salvar'}}</button>
+</form>
+
+<table class="center" *ngIf="listaTarefas.length > 0">
+  <thead>
+    <th><input type="checkbox" (change)="selecionarTodos()"></th>
+    <th>Tarefa</th>
+    <th>Ações</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let tarefa of listaTarefas | filtro:filtroMostrar:'ativo'; let i = index;">
+      <td><input type="checkbox" [(ngModel)]="tarefa.selected"></td>
+      <td>{{tarefa.descricao}}</td>
+      <td>
+        <button type="button" (click)="onComplete(i)" *ngIf="tarefa.ativa">Finalizar</button>
+        <button type="button" (click)="onEdit(i)">Editar</button>
+        <button type="button" (click)="onDelete(i)">Excluir</button>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<hr>
+<article class="center" *ngIf="listaTarefas.length > 0">
+  <button type="button" (click)="filtrar(null)">Mostrar Todos</button>
+  <button type="button" (click)="filtrar(false)">Mostrar Finalizados</button>
+  <button type="button" (click)="filtrar(true)">Mostrar a Fazer</button>
+  <button type="button" (click)="excluir()">Excluir Selecionados</button>
+  <button type="button" (click)="excluirTodos()">Excluir Todos</button>
+</article>

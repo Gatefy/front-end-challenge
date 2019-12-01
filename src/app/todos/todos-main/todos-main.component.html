@@ -1,0 +1,126 @@
+<div class="card mt-3">
+  <div class="card-header">
+    <div class="float-left">
+      <h4>Todos</h4>
+    </div>
+    <div class="float-right col-md-6">
+      <form class="needs-validation" [formGroup]="form">
+        <input
+          type="hidden"
+          class="form-control"
+          id="id"
+          formControlName="id"
+        />
+        <div class="form-row">
+          <div>
+            <input
+              type="text"
+              class="form-control"
+              id="todo"
+              formControlName="todo"
+            />
+          </div>
+          <div>
+            <div class="checkbox">
+              <label class="checkbox-inlie">
+                <input
+                  type="checkbox"
+                  class="form-control"
+                  id="status"
+                  formControlName="status"
+                  [checked]="setState"
+                />
+                Done!
+              </label>
+            </div>
+          </div>
+
+          <div style="margin-left:10px">
+            <button type="submit" class="btn btn-primary" (click)="onSubmit()">
+              Save
+            </button>
+            <button type="button" class="btn btn-danger" (click)="onCancel()">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+    <div class="float-right col-md-4">
+      <div class="col-md-8">
+        <select id="flter" class="form-control" [(ngModel)]="filtro">
+          <option value="all">ALL</option>
+          <option value="done">ONLY DONE</option>
+          <option value="notdone">ONLY NOT DONE</option>
+        </select>
+      </div>
+    </div>
+  </div>
+  <div class="card-body">
+    <table
+      class="table table-hover"
+      *ngIf="todos$ | async as todos; else loading"
+    >
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Todo</th>
+          <th>Status</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let todo of todos">
+          <ng-container *ngIf="fcFiltro(todo)">
+            <td>{{ todo.id }}</td>
+            <td>{{ todo.todo }}</td>
+            <td>
+              <div class="checkbox">
+                <label class="checkbox-inlie">
+                  <input
+                    type="checkbox"
+                    [checked]="todo.status"
+                    (change)="onCheck(todo, $event.target)"
+                  />
+                  Done!
+                </label>
+              </div>
+            </td>
+            <td>
+              <span class="float-right">
+                <button
+                  class="btn btn-outline-warning mb-1 btn-sm"
+                  (click)="onEdit(todo)"
+                >
+                  Update
+                </button>
+
+                <button
+                  class="btn btn-outline-danger mb-1 btn-sm"
+                  (click)="onDelete(todo)"
+                >
+                  Delete
+                </button>
+              </span>
+            </td>
+          </ng-container>
+        </tr>
+      </tbody>
+    </table>
+
+    <ng-template #loading>
+      <span>Todo list empty!</span>
+    </ng-template>
+  </div>
+  <div class="card-footer">
+    <div class="float-right">
+      <button class="btn btn-warning" (click)="deleteAll(true)">
+        Delete all done.
+      </button>
+
+      <button class="btn btn-danger" (click)="deleteAll(false)">
+        Delete all
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,49 @@
+.nav-menu {
+  display        : flex;
+  justify-content: space-between;
+  align-items    : center;
+  width          : 100%;
+  height         : 70px;
+  padding        : 0 50px;
+  background     : #104f66;
+
+  .logo-white {
+    width : 110px;
+    margin: auto;
+  }
+
+  .searchDiv {
+    margin-top: -20px;
+
+    input {
+      width      : 100%;
+      min-width  : 320px;
+      height     : 40px;
+      text-indent: 35px;
+      color      : #b1b1b1;
+    }
+
+    .inputIcon {
+      position : relative;
+      top      : 28px;
+      left     : 5%;
+      font-size: 13px;
+      color    : #b1b1b1;
+    }
+  }
+
+  ul {
+    display        : flex;
+    justify-content: space-between;
+    color          : #fff;
+
+    li {
+      padding: 0 15px;
+
+      a {
+        color      : #fff;
+        font-weight: bold;
+      }
+    }
+  }
+}

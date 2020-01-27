@@ -1,0 +1,25 @@
+.container-wrapper {
+  display  : flex;
+  height   : 100%;
+  height   : 100vh;
+  margin   : auto;
+  width    : 100%;
+  max-width: 922px;
+
+  aside {
+    width       : 350px;
+    border-right: 1px solid #f3f3f3;
+    padding     : 30px;
+  }
+
+  .content-todo {
+    background: #fff;
+    width     : 100%;
+    padding   : 30px;
+
+    h2 {
+      margin   : 10px 0;
+      font-size: 20px;
+    }
+  }
+}

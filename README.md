@@ -1,22 +1,36 @@
-# Teste Front-End
+# Lista de Tarefas (TODO)
 
-### Objetivo
-Mostrar sua maturidade como desenvolvedor em aspectos como orientação a objetos, design patterns, boas práticas, clean code, testes, recursos do framework, recursos da linguagem e [estilo de escrita de CSS](https://tableless.com.br/oocss-smacss-bem-dry-css-afinal-como-escrever-css/);
+Aplicação front-end desenvolvida utilizando o  [Angular CLI](https://github.com/angular/angular-cli) versão 8.3.22. 
 
-### O que:
-Seu código deve ser capaz de gerenciar uma lista de tarefas (To Do List).
+Aqui você irá encontrar as funcionalidades de CRUD utilizando o localStorage para armazemar as informações e simular um banco de dados.
 
-O seu usuário deve ter as seguintes capacidades:
-- Adicionar um item a lista;
-- Editar um item da lista;
-- Marcar um item como feito;
-- Remover um item da lista;
-- Remover todos os itens marcados como feito;
-- Remover todos os itens da lista;
-- Filtrar por: mostrar todos, apenas marcados como feito, apenas não marcados como feito;
+## Libs externas utilizadas
+* [Angular Material](https://material.angular.io/) - Material Design components
+* [Ant Design Angular Icons](https://github.com/ant-design/ant-design-icons/tree/master/packages/icons-angular) - Ícones para Angular
+* [Toastr](https://www.npmjs.com/package/ngx-toastr) - Apresentar mensagens de alerta após uma ação 
+* [Uuid](https://www.npmjs.com/package/uuid) - Gerar Identificador Único
 
-### Como:
-Faça um pull request para este repositório com o seu código, que, deve ser escrito utilizando o framework [Angular](https://angular.io/), [SASS](https://sass-lang.com/) e [Typescript](https://www.typescriptlang.org/).
+## Exetcutando o projeto local
 
-### Extras (não necessário):
-Testes unitários e/ou testes E2E.
+Para executar o projeto,  após realizar o download via git, descompate em um diretório, entre nele e siga os passos abaixo:
+
+1 - Instalar os pacotes node_modules da aplicação:
+```bash
+$ npm install
+```
+2 - Executar o projeto
+
+```bash
+$ ng serve
+```
+3 -  Abra seu browser e digite a url
+```bash
+http://localhost:4200
+```
+  
+## Autor
+
+:mortar_board: **Ângelo Pietro**
+
+- Linkedin: [Ângelo Pietro](https://www.linkedin.com/in/angelopietro/)
+- Github: [@angelopietro](https://github.com/angelopietro)

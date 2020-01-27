@@ -1,0 +1,29 @@
+<nav class="nav-menu">
+  <a href="/"><img src="../../../assets/logo_white.png" class="logo-white"/></a>
+
+  <div class="searchDiv">
+    <i antIcon type="search" class="inputIcon"></i>
+    <input />
+  </div>
+
+  <ul class="menu-items">
+    <li matTooltip="Adicionar tarefa">
+      <a [routerLink]="['/todo/new']" mat-flat-button
+        ><i antIcon type="plus-circle"></i
+      ></a>
+    </li>
+    <li>
+      <i
+        antIcon
+        type="bell"
+        matBadge="{{ totalTasks }}"
+        matBadgeOverlap="true"
+        matBadgeColor="warn"
+        matTooltip="Total de tarefas"
+      ></i>
+    </li>
+    <li>
+      <i antIcon type="setting" matTooltip="Configuração de sua conta"></i>
+    </li>
+  </ul>
+</nav>

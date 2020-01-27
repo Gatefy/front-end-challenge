@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>
+  {{ retornoAlerta?.title }}
+</h1>
+
+<div mat-dialog-content>
+  <p>{{ retornoAlerta?.message }}</p>
+</div>
+
+<div mat-dialog-actions>
+  <button color="warn" (click)="onConfirm()">Confirmar</button>
+  <button (click)="onDismiss()">Cancelar</button>
+</div>

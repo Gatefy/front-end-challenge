@@ -1,0 +1,20 @@
+ul {
+  .active {
+    color: #104f66;
+  }
+
+  li {
+    display        : flex;
+    align-items    : center;
+    justify-content: space-between;
+    align-content  : flex-start;
+    line-height    : 45px;
+    border-bottom  : 1px solid #f1f1f1;
+
+    a,
+    span {
+      text-indent: 10px;
+      width      : 100%;
+    }
+  }
+}

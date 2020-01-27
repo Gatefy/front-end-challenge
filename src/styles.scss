@@ -1,0 +1,72 @@
+/* You can add global styles to this file, and also import other style files */
+@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import url("https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap");
+@import "~ngx-toastr/toastr";
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin     : 0;
+  font-family: "Roboto", "Helvetica Neue", sans-serif;
+  background : #fafafa;
+  color      : #666;
+}
+
+%border-radius-4 {
+  border-radius: 0.4rem;
+}
+
+* {
+  margin                 : 0;
+  padding                : 0;
+  outline                : 0;
+  box-sizing             : border-box;
+  -webkit-font-smoothing : auto;
+  -moz-osx-font-smoothing: grayscale;
+  font-size              : 14px;
+}
+
+a {
+  text-decoration: none;
+  color          : #666;
+}
+
+ul {
+  list-style: none;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+button {
+  cursor: pointer;
+  @extend %border-radius-4;
+}
+
+input {
+  width : 100%;
+  border: #ddd 1px solid;
+  height: 30px;
+  @extend %border-radius-4;
+
+  &::placeholder {
+    color: #d5d5d5;
+  }
+}
+
+.menu-acoes {
+  svg {
+    margin-top: 5px;
+    font-size : 28px;
+  }
+}
+
+.menu-items {
+  svg {
+    font-size: 20px;
+  }
+}

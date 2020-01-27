@@ -1,0 +1,41 @@
+<div class="card-form ">
+  <h2>ADICIONANDO NOVA TAREFA</h2>
+
+  <form #formTask="ngForm">
+    <mat-form-field appearance="outline">
+      <mat-label>Título da tarefa</mat-label>
+      <input
+        matInput
+        id="title"
+        name="title"
+        [(ngModel)]="task.title"
+        (keyup.enter)="handleSubmit()"
+        #title="ngModel"
+        minlength="5"
+        maxlength="70"
+        required
+      />
+      <mat-hint *ngIf="title.errors && (title.dirty || title.touched)">
+        <div [hidden]="!title.errors.required">
+          Digite a tarefa.
+        </div>
+        <div [hidden]="!title.errors.minlength">
+          A tarefa deve conter no mínimo 5 caracteres.
+        </div>
+      </mat-hint>
+    </mat-form-field>
+
+    <button
+      mat-flat-button
+      color="warn"
+      type="button"
+      (click)="handleSubmit()"
+      [disabled]="!formTask.form.valid"
+    >
+      <i antIcon type="check"></i> Adicionar Tarefa
+    </button>
+    <a [routerLink]="['/todos']" mat-flat-button>
+      Cancelar
+    </a>
+  </form>
+</div>

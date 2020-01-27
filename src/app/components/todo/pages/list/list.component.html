@@ -1,0 +1,79 @@
+<div class="nav-menu-list">
+  <h2>LISTA DE TAREFAS</h2>
+
+  <div class="menu-itens">
+    <button
+      class="menu-acoes"
+      mat-icon-button
+      [matMenuTriggerFor]="menu"
+      aria-label="Ações gerais das tarefas"
+    >
+      <i antIcon type="ellipsis" matTooltip="Ações gerais das tarefas"></i>
+    </button>
+    <mat-menu #menu="matMenu" xPosition="before">
+      <button mat-menu-item (click)="handleFilter('all')">
+        <i antIcon type="file-text"></i>
+        <span>Mostrar todas as tarefas</span>
+      </button>
+      <button mat-menu-item (click)="handleFilter('active')">
+        <i antIcon type="history"></i>
+        <span>Mostrar tarefas ativas</span>
+      </button>
+      <button mat-menu-item (click)="handleFilter('done')">
+        <i antIcon type="check"></i>
+        <span>Mostrar tarefas finalizadas</span>
+      </button>
+
+      <mat-divider></mat-divider>
+
+      <button mat-menu-item (click)="handleConfirm($event, 'all')">
+        <i antIcon type="rest"></i>
+        <span>Remover todas as tarefas</span>
+      </button>
+      <button mat-menu-item (click)="handleConfirm($event, 'done')">
+        <i antIcon type="close-circle"></i>
+        <span>Remover tarefas finalizadas</span>
+      </button>
+    </mat-menu>
+  </div>
+</div>
+
+<mat-list>
+  <div *ngFor="let tarefa of tasks">
+    <mat-list-item [todoIsDone]="tarefa.isDone">
+      <mat-checkbox
+        color="primary"
+        (click)="handleStatus(tarefa)"
+        [value]="tarefa.id"
+        [checked]="tarefa.isDone"
+      >
+        {{ tarefa.title }}
+      </mat-checkbox>
+    </mat-list-item>
+
+    <mat-action-list>
+      <a
+        [routerLink]="['/todo/edit/' + tarefa.id]"
+        title="Editar tarefa"
+        alt="Editar tarefa"
+      >
+        <i antIcon type="edit"></i>
+        Editar tarefa
+      </a>
+      <a
+        href="#"
+        title="Remover tarefa"
+        alt="Remover tarefa"
+        (click)="handleConfirm($event, tarefa)"
+      >
+        <i antIcon type="delete"></i>
+        Remover tarefa
+      </a>
+    </mat-action-list>
+    <mat-divider></mat-divider>
+  </div>
+</mat-list>
+
+<div *ngIf="tasks.length == 0" class="message">
+  <p>Nenhuma tarefa disponível</p>
+</div>
